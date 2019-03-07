@@ -1,0 +1,2 @@
+mongoUrl=mongodb数据库链接
+appPort=项目启动端口
