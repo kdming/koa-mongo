@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.set('debug', true);
 
 /**
  * 单个查询
@@ -57,9 +58,9 @@ const create = async (params) => {
  */
 const update = async (params) => {
   try {
-    const {where, model, update, option} = params;
+    const {where, model, update} = params;
     const Model = mongoose.model(model);
-    const result = await Model.update(where, update, option);
+    const result = await Model.update(where, {$set: update});
     return result;
   } catch (err) {
     console.log(err);
