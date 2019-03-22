@@ -9,6 +9,7 @@ let error = 0;
 const connect = () => {  
   try {
     mongoose.connect(config.parsed.mongoUrl, {useNewUrlParser: true});
+    return mongoose.connection;
   } catch (err) {
     console.log(err);
   }
@@ -28,5 +29,4 @@ mongoose.connection.on('error', (err) => {
   console.log(err);
 })
 
-connect();
-module.exports = mongoose.connection;
+module.exports = connect;

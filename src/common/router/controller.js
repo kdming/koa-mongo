@@ -2,7 +2,8 @@ const Router = require('koa-router');
 const path = require('path');
 const glob = require('glob');
 
-const router = new Router({prefix: '/api' });
+const router = new Router({prefix: '/api'});
+const unroot = new Router({prefix: '/api'});
 
 const loadRouter = () => {
   try {
@@ -15,13 +16,13 @@ const loadRouter = () => {
     // 加载路由
     for (let v in defines) {
       const controller = require(`${filePath}/${defines[v]}`);
-      controller.router(router);
+      controller.router(router, unroot);
     }
     console.log('路由列表', defines);
+    return {router, unroot};
   } catch (err) {
     console.log(err);
   }
 }
 
-loadRouter();
-module.exports = router;
+module.exports = loadRouter;
