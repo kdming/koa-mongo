@@ -2,8 +2,11 @@ const mongoose = require('mongoose');
 const crypto = require('crypto');
 
 const service = {
-  returnBody: (success, data, message) => {
-    return {success, data, message};
+  returnBody: (code, data, message) => {
+    if (code === 1) {
+      console.log(data); // 输出异常信息
+    } 
+    return {code, data, message};
   },
   encryptStr: (str) => {
     if (!str || typeof str !== 'string') return str;
