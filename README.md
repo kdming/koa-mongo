@@ -3,6 +3,6 @@
 #### 准备事项  
 启动前必须根据.envExample填写配置信息
 #### 启动命令  
-npm i
+npm i  
 npm run dev || node app.js
 
