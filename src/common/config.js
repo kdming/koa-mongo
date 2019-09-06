@@ -1,3 +1,3 @@
-const dotenv = require('dotenv');
+const dotenv = require('dotenv')
 
-module.exports = dotenv.config();
+module.exports = dotenv.config()

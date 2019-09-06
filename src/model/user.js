@@ -1,13 +1,13 @@
-const crypto = require('crypto');
+const svc = require('../controller/util/service')
 
 module.exports = (Schema) => {
   const model = new Schema({
     name: String,
-    pwd: String
-  });
+    password: String
+  })
   model.pre('save', function (next) {
-    this.pwd = crypto.createHash('sha1').update(this.pwd).digest('hex');
-    next();
-  });
-  return {name: 'user', model};
+    this.password = svc.encryptStr(this.password)
+    next()
+  })
+  return { name: 'user', model }
 }
