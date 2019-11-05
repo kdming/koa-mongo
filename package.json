@@ -16,7 +16,7 @@
     "koa-static": "^5.0.0",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
-    "mongoose": "^5.4.17",
+    "mongoose": "^5.7.5",
     "mongoose-paginate": "^5.0.3",
     "mongoose-timestamp": "^0.6.0"
   },
